@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<form action="{% url 'polls:votar' pregunta.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ pregunta.textoPregunta }}</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for eleccion in pregunta.eleccion_set.all %}
+            <input type="radio" name="eleccion" id="eleccion{{ forloop.counter }}" value="{{ eleccion.id }}">
+            <label for="eleccion{{ forloop.counter }}">{{ eleccion.textoEleccion }}</label><br>
+        {% endfor %}
+    </fieldset>
+    <br>
+    <input type="submit" value="Votar">
+    </form>

@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<h1>Ultimas encuestas</h1>
+{% if ultimasPreguntas %}
+    <ul>
+    {% for pregunta in ultimasPreguntas %}
+        <li><a href="{% url 'polls:detalles' pregunta.id %}">{{ pregunta.textoPregunta }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay ninguna encuesta disponible.</p>
+{% endif %}
