@@ -6,9 +6,12 @@ body{
 input{
     background-color: rgb(84, 161, 206);
     border-radius: 25%;
-    border: 300px;
-    border-color: black;
-    font-size: x-large;
+    border: 1px solid black;
+    font-size: large; 
+}
+
+input:hover{
+    background-color: rgb(78, 134, 167);
 }
 
 h1{

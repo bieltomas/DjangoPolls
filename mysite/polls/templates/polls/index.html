@@ -6,6 +6,7 @@
     <ul>
     {% for pregunta in ultimasPreguntas %}
         <li><a href="{% url 'polls:detalles' pregunta.id %}">{{ pregunta.textoPregunta }}</a></li>
+        <br>
     {% endfor %}
     </ul>
 {% else %}
